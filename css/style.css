@@ -1,0 +1,50 @@
+/*FONTS
+font-family: 'Rammetto One', cursive;
+font-family: 'Open Sans', sans-serif;
+*/
+
+body {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+body {
+  background-image: url(spiration-light.png);
+}
+
+.header {
+  font-family: 'Rammetto One', cursive;
+}
+
+#moves {
+  font-family: 'Open Sans', sans-serif;
+}
+
+#game-result {
+  font-family: 'Rammetto One', cursive;
+}
+
+#player-move {
+  font-family: 'Rammetto One', cursive;
+}
+
+#computer-move {
+  font-family: 'Rammetto One', cursive;
+}
+
+.red {
+  color: darkred;
+}
+
+.email {
+  color: darkred;
+}
+
+a:hover {
+    color: black;
+}
+
+.copyright {
+  font-family: 'Open Sans', sans-serif;
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--META TAGS-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <meta name="game" content="Rock, Paper, Scissors: A Game"/>
+
+    <title>Rock, Paper, Scissors: A Game</title>
+
+    <!-- Bootstrap, Fonts, Font Awesome, CSS -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--Bootstrap-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Rammetto+One" rel="stylesheet">
+
+</head>
+<body>
+
+<section id="header">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12 text-center">
+             <br>
+             <br>
+             <h1 class="header">Rock, Paper, and Scissors</h1>
+             <br>
+          </div><!--End col-md-12, Header Section-->
+      </div><!--END Row, Header Section-->
+  </div><!--END Container-Fluid, Header Section-->
+</section><!--END Header Section-->
+
+<section id="moves">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-2 text-center"></div>
+          <div class="col-md-4 text-center">
+            <h2><strong>Player Move:</strong></h2>
+            <span id="player-move"></span>
+            <!--<label>Your Move:</label>-->
+            <br>
+            <br>
+            <button type="button" id="play-rock" class="btn btn-secondary">Rock</button>
+            <button type="button" id="play-paper" class="btn btn-secondary">Paper</button>
+            <button type="button" id="play-scissors" class="btn btn-secondary">Scissors</button>
+
+
+          </div>
+          <div class="col-md-4 text-center">
+            <h2><strong>Computer:</strong></h2>
+            <span id="computer-move"></span>
+          </div>
+          <div class="col-md-2 text-center"></div>
+    </div><!--End Row Section-->
+    <div class="row">
+      <div class="col-md-12 text-center">
+       <br>
+        <h2 id="game-result"></h2>
+      </div>
+    </div>
+  </div><!--End Container Section-->
+</section><!--END MOVES Section-->
+
+</body>
+
+<footer class="footer">
+    <div class="container-fluid">
+        <br>
+        <p class="copyright text-center"><strong>Made with <span class="red"><i class="fa fa-heart" aria-hidden="true"></i></span> by Faith H. Wallace, Ph.D., &copy;  2017 • </strong><a class="email" href="mailto:fwallacephd@gmail.com"><strong> Email Me</strong></a></p>
+    </div>
+</footer>
+
+<script src="jquery.js"></script>
+
+<script>
+
+    function playComputerMove() {
+      var number = Math.floor(Math.random() * 3) + 1;
+      console.log(number);
+      if (number === 1) {
+        $("#computer-move").text("Rock");
+        var computer = 1;
+      } else if (number === 2) {
+        $("#computer-move").text("Paper");
+        var computer = 2;
+      } else if (number === 3) {
+        $("#computer-move").text("Scissors");
+        var computer = 3;
+      }
+      return (computer)
+    }
+
+    function determineWinner(player, computer) {
+      if (player === computer){
+        winner = "Tie"
+        return (winner);
+      }
+      if (player === 1 && computer === 2) {
+        winner = "Rock"
+        return (winner);
+      }
+      if (player === 2 && computer === 1) {
+        winner = "Rock"
+        return (winner);
+      }
+      if (player === 3 && computer === 1) {
+        winner = "Rock";
+        return (winner)
+      } else {
+        winner = "Paper";
+        return (winner);
+      }
+    }
+
+    $("#play-rock").on("click", function() {
+      $("#player-move").text("Rock");
+      var player = 1;
+      computer = playComputerMove();
+      determineWinner(player, computer);
+      if (winner === "Tie") {
+        $("#game-result").text("It's a Tie!");
+      } else {
+        $("#game-result").text(winner + " wins!");
+      }
+    });
+    $("#play-paper").on("click", function() {
+      $("#player-move").text("Paper");
+      var player = 2;
+      computer = playComputerMove();
+      determineWinner(player, computer);
+      if (winner === "Tie") {
+        $("#game-result").text("It's a Tie!");
+      } else {
+        $("#game-result").text(winner + " wins!");
+      }
+    });
+    $("#play-scissors").on("click", function() {
+      $("#player-move").text("Scissors");
+      var player = 3;
+      computer = playComputerMove();
+      determineWinner(player, computer);
+      if (winner === "Tie") {
+        $("#game-result").text("It's a Tie!");
+      } else {
+        $("#game-result").text(winner + " wins!");
+      }
+    });
+
+
+  </script>
+</html>
