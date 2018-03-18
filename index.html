@@ -63,6 +63,8 @@
             <button type="button" id="play-scissors" class="btn btn-secondary">Scissors</button>
 
 
+
+
           </div>
           <div class="col-md-4 text-center">
             <h2><strong>Computer:</strong></h2>
@@ -99,26 +101,31 @@
         $("#computer-move").text("Rock");
         var computer = 1;
       } else if (number === 2) {
-        $("#computer-move").text("Paper");
+        $("#computer-move").text("Scissors");
         var computer = 2;
       } else if (number === 3) {
-        $("#computer-move").text("Scissors");
+        $("#computer-move").text("Paper");
         var computer = 3;
       }
       return (computer)
     }
 
+
     function determineWinner(player, computer) {
       if (player === computer){
-        winner = "Tie"
+        winner = "Tie";
         return (winner);
       }
       if (player === 1 && computer === 2) {
-        winner = "Rock"
+        winner = "Rock";
         return (winner);
       }
       if (player === 2 && computer === 1) {
-        winner = "Rock"
+        winner = "Rock";
+        return (winner);
+      }
+      if (player === 2 && computer === 3) {
+        winner = "Paper";
         return (winner);
       }
       if (player === 3 && computer === 1) {
@@ -141,8 +148,8 @@
         $("#game-result").text(winner + " wins!");
       }
     });
-    $("#play-paper").on("click", function() {
-      $("#player-move").text("Paper");
+    $("#play-scissors").on("click", function() {
+      $("#player-move").text("Scissors");
       var player = 2;
       computer = playComputerMove();
       determineWinner(player, computer);
@@ -152,8 +159,8 @@
         $("#game-result").text(winner + " wins!");
       }
     });
-    $("#play-scissors").on("click", function() {
-      $("#player-move").text("Scissors");
+    $("#play-paper").on("click", function() {
+      $("#player-move").text("Paper");
       var player = 3;
       computer = playComputerMove();
       determineWinner(player, computer);
